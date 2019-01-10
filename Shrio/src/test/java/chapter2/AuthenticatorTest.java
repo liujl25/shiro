@@ -91,9 +91,7 @@ public class AuthenticatorTest {
         PrincipalCollection principalCollection = subject.getPrincipals();
         logger.info(principalCollection.getRealmNames().toString());
         logger.info(principalCollection.asList().size()+"");
-        for (Object object : principalCollection.asList()) {
-			logger.info(object.toString());
-		}
+        logger.info(principalCollection.asList().toString());
         Assert.assertEquals(1, principalCollection.asList().size());
     }
 

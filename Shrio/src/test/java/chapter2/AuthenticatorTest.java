@@ -40,10 +40,10 @@ public class AuthenticatorTest {
         try {  
 	        //4、登录，即身份验证  
 	        subject.login(token);
-	        System.out.println("login successed");
+	        logger.info("login succeeded");
 	    } catch (AuthenticationException e) {  
 	        //5、身份验证失败  
-	    	System.out.println("login failed");
+	    	logger.info("login failed");
 	    }  
     }
     @Test
@@ -102,6 +102,10 @@ public class AuthenticatorTest {
 
         //得到一个身份集合，因为myRealm1和myRealm4返回的身份一样所以输出时只返回一个
         PrincipalCollection principalCollection = subject.getPrincipals();
+        
+        logger.info(principalCollection.getRealmNames().toString());
+        logger.info(principalCollection.asList().size()+"");
+        logger.info(principalCollection.asList().toString());
         Assert.assertEquals(1, principalCollection.asList().size());
     }
 
